@@ -1,8 +1,4 @@
-# --- First database schema
-
-# --- !Ups
-
-set ignorecase true;
+-- !Ups
 
 create table company (
   id                        bigint not null,
@@ -27,17 +23,14 @@ alter table computer add constraint fk_computer_company_1 foreign key (company_i
 create index ix_computer_company_1 on computer (company_id);
 
 
-# --- !Downs
-
-SET REFERENTIAL_INTEGRITY FALSE;
-
-drop table if exists company;
+-- !Downs
 
 drop table if exists computer;
 
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists company;
+
+drop sequence if exists computer_seq;
 
 drop sequence if exists company_seq;
 
-drop sequence if exists computer_seq;
 
