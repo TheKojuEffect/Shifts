@@ -1,0 +1,21 @@
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.11.0.xsd">
+    <jdbc>
+        <driver>org.postgresql.Driver</driver>
+        <url>jdbc:postgresql://localhost:5432/shifts</url>
+        <user>postgres</user>
+        <password>postgres</password>
+    </jdbc>
+    <generator>
+        <name>org.jooq.codegen.ScalaGenerator</name>
+        <database>
+            <name>org.jooq.meta.postgres.PostgresDatabase</name>
+            <inputSchema>public</inputSchema>
+            <includes>.*</includes>
+            <excludes>play_evolutions</excludes>
+        </database>
+        <target>
+            <packageName>generated.jooq</packageName>
+            <directory>app</directory>
+        </target>
+    </generator>
+</configuration>
