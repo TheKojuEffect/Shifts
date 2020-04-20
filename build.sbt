@@ -17,6 +17,6 @@ lazy val root = (project in file("."))
     scalacOptions ++= List("-encoding", "utf8", "-deprecation", "-feature", "-unchecked", "-Xfatal-warnings"),
     javacOptions ++= List("-Xlint:unchecked", "-Xlint:deprecation", "-Werror"),
 
-    jooqCodegenStrategy := CodegenStrategy.Always,
+    jooqCodegenStrategy := CodegenStrategy.Never,
     jooqCodegenConfig := baseDirectory.value / "conf/jooq-codegen.xml"
   )
