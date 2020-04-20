@@ -6,14 +6,12 @@ lazy val root = (project in file("."))
     scalaVersion := "2.13.1",
     libraryDependencies ++= Seq(
       guice,
-      "com.typesafe.play" %% "play-slick" % "5.0.0",
-      "com.typesafe.play" %% "play-slick-evolutions" % "5.0.0",
+      jdbc,
+      evolutions,
       "com.h2database" % "h2" % "1.4.199",
-      specs2 % Test,
+      "org.playframework.anorm" %% "anorm" % "2.6.5",
+      "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
     ),
-    scalacOptions ++= Seq(
-      "-feature",
-      "-deprecation",
-      "-Xfatal-warnings"
-    )
+    scalacOptions ++= List("-encoding", "utf8", "-deprecation", "-feature", "-unchecked", "-Xfatal-warnings"),
+    javacOptions ++= List("-Xlint:unchecked", "-Xlint:deprecation", "-Werror")
   )
